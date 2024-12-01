@@ -38,7 +38,7 @@ exports.getAllUsers = (callback) => {
 };
 
 exports.addUser = (Landmark, Details, callback) => {
-  const stmt = db.prepare('INSERT INTO users (Landmark, Details) VALUES (?, ?)');
+  const stmt = db.prepare('INSERT INTO Landmarks (Landmark, Details) VALUES (?, ?)');
   stmt.run([Landmark, Details], function (err) {
     if (err) {
       return callback(err);
@@ -47,3 +47,16 @@ exports.addUser = (Landmark, Details, callback) => {
   });
   stmt.finalize();
 };
+
+exports.deleteUser = (id, callback) => {
+    const sql = `DELETE FROM Landmarks WHERE id = ?`;
+    db.run(sql, [id], function (err) {
+    if (err) {
+        return callback(err);
+    }
+    if (this.changes === 0) {
+        return callback(new Error('No landmark found with the given ID.'));
+    }
+      callback(null);
+    });
+  };
