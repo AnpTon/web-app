@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Landmarks</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
@@ -17,6 +18,18 @@
 
       <button type="submit">Add Landmark</button>
     </form>
+    <button id="MB">Delete an Landmark</button>
+    <div id="modal" class="modal">
+      <div class="mcontent">
+        <h2>Delete Item</h2>
+        <p>Enter the index of the item to delete:</p>
+        <input type="number" id="LMI" placeholder="Enter index" required>
+        <div class="button-group">
+          <button id="DB">Delete</button>
+          <button id="CB">Cancel</button>
+        </div>
+      </div>
+    </div>
     <h2>Landmarks List</h2>
     <table id="LandTable">
       <thead>

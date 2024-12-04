@@ -4,6 +4,6 @@ const userController = require('../controllers/LMcontroller');
 
 router.get('/', userController.getAllUsers);
 router.post('/', userController.addUser);
-router.delete('????', userController.deleteUser);
+router.delete('/:id', userController.deleteUser);
 
 module.exports = router;

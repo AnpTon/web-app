@@ -38,3 +38,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
       fetchUsers();
   });
+
+const OMB = document.getElementById('MB');
+const modal = document.getElementById('modal');
+const CanB = document.getElementById('CB');
+const DelB = document.getElementById('DB');
+const DIND = document.getElementById('LMI');
+
+OMB.addEventListener('click', () => {
+  modal.style.display = 'flex';
+});
+
+CanB.addEventListener('click', () => {
+  closeModal();
+});
+DelB.addEventListener('click', async () => {
+  const index = DIND.value.trim();
+  if (!index) {
+    alert('Please enter a valid index.');
+    return;
+  }
+  try {
+    const response = await fetch(`/Landmarks/${index}`, {
+      method: 'DELETE',
+    });
+
+    if (response.ok) {
+      alert(`Item with index ${index} deleted successfully.`);
+    } else {
+      const errorText = await response.text();
+      alert(`Error: ${errorText}`);
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('An error occurred while deleting the item.');
+  }
+  closeModal();
+});
+function closeModal() {
+  modal.style.display = 'none';
+  DIND.value = '';
+}
