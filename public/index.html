@@ -6,31 +6,33 @@
   <title>Landmarks</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <div class="container">
-    <h1>Landmarks</h1>
+<body id="container">
+  <div id="app">
+    <h1 id="appt">Landmarks</h1>
     <form id="LandAdd">
       <label for="Landmark">Landmark Name:</label>
-      <input type="text" id="Landmark" required>
+      <input type="text" id="Landmark" placeholder="Enter Landmark Name" required>
 
       <label for="Details">Details:</label>
-      <input type="text" id="Details" required>
+      <input type="text" id="Details" placeholder="Enter Details" required>
 
-      <button type="submit">Add Landmark</button>
+      <button type="submit" id="addButton">Add Landmark</button>
     </form>
-    <button id="MB">Delete an Landmark</button>
-    <div id="modal" class="modal">
-      <div class="mcontent">
+    <button id="MB">Delete a Landmark</button>
+
+    <div id="modal">
+      <div id="mcontent">
         <h2>Delete Item</h2>
         <p>Enter the index of the item to delete:</p>
         <input type="number" id="LMI" placeholder="Enter index" required>
-        <div class="button-group">
+        <div id="BG">
           <button id="DB">Delete</button>
           <button id="CB">Cancel</button>
         </div>
       </div>
     </div>
-    <h2>Landmarks List</h2>
+
+    <h2 id="listt">Landmarks List</h2>
     <table id="LandTable">
       <thead>
         <tr>
